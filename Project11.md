@@ -208,4 +208,4 @@ Run some shell script
 
 ![VS Code](./images/server-connect-vscode.PNG)
 
-`ansible-playbook -i /var/lib/jenkins/jobs/ansible/builds/3/archive/inventory/dev.yml /var/lib/jenkins/jobs/ansible/builds/3/archive/playbooks/common.yml`
+`ansible-playbook -i /var/lib/jenkins/jobs/ansible/builds/5/archive/inventory/dev.yml /var/lib/jenkins/jobs/ansible/builds/5/archive/playbooks/common.yml`
