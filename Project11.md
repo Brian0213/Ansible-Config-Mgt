@@ -172,10 +172,40 @@ Run some shell script
 
 - Commit your code into GitHub:
 
-- use git commands to add, commit and push your branch to GitHub
+- use git commands to add, commit and push your branch to GitHub:
 
-`ssh -A ubuntu@public-ip`
+`git commit`
 
-![Jenkins Ansible start](./images/jenkins-ansible-start.PNG)
+`git push`
+
+![Git Commit & Push](./images/prj11-commit-push.PNG)
+
+![Git Pull & Merge](./images/git-pull-merge.PNG)
+
+![Jenkins AutoUpdate](./images/jenkins-autobuild-update.PNG)
+
+- Once your code changes appear in main branch – Jenkins will do its job and save all the files (build artifacts) to /var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/ directory on Jenkins-Ansible server.
+
+`sudo ls /var/lib/jenkins/jobs/ansible/builds/3/archive`
+
+`cd /var/lib/jenkins/jobs/ansible/builds/3/archive`
+
+`cd inventory`
+
+`ls`
+
+`cat dev.yml`
+
+![Line 189 - 197 Output](./images/server-archive-info.PNG)
+
+###### RUN FIRST ANSIBLE TEST
+
+- Step 7 – Run first Ansible test
+
+- Now, it is time to execute ansible-playbook command and verify if your playbook actually works:
+
+- Connect to server to VS code
+
+![VS Code](./images/server-connect-vscode.PNG)
 
 
