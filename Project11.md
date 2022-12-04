@@ -213,3 +213,22 @@ Run some shell script
 ![VS Code](./images/server-connect-vscode.PNG)
 
 `ansible-playbook -i /var/lib/jenkins/jobs/ansible/builds/5/archive/inventory/dev.yml /var/lib/jenkins/jobs/ansible/builds/5/archive/playbooks/common.yml`
+
+![Ansible Run Output](./images/ansible-run-success.PNG)
+
+- You can go to each of the servers and check if wireshark has been installed by running which wireshark or wireshark --version
+
+`which wireshark`
+
+`wireshark --version`
+
+![Nfs WireShark](./images/nfs-wiresh-output.PNG)
+
+![Webserver WireShark](./images/webserv1-wiresh-output.PNG)
+
+![Webserver WireShark](./images/webserv2-wiresh-output.PNG)
+
+![Webserver WireShark](./images/webserv1-wiresh-output.PNG)
+
+![load WireShark](./images/load-wiresh-output.PNG)
+
