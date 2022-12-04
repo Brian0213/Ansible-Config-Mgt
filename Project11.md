@@ -136,6 +136,10 @@ Now, ssh into your Jenkins-Ansible server using ssh-agent:
 
 ![Inventory Devyml](./images/inventory-devyml-update.PNG)
 
+- To ssh into another server from the Jenkins-Asnible server:
+
+`ssh ec2-user@private-ip`
+
 ###### CREATE A COMMON PLAYBOOK
 
 - Create a Common Playbook
@@ -197,4 +201,34 @@ Run some shell script
 `cat dev.yml`
 
 ![Line 189 - 197 Output](./images/server-archive-info.PNG)
+
+###### RUN FIRST ANSIBLE TEST
+
+- Step 7 – Run first Ansible test
+
+- Now, it is time to execute ansible-playbook command and verify if your playbook actually works:
+
+- Connect to server to VS code
+
+![VS Code](./images/server-connect-vscode.PNG)
+
+`ansible-playbook -i /var/lib/jenkins/jobs/ansible/builds/5/archive/inventory/dev.yml /var/lib/jenkins/jobs/ansible/builds/5/archive/playbooks/common.yml`
+
+![Ansible Run Output](./images/ansible-run-success.PNG)
+
+- You can go to each of the servers and check if wireshark has been installed by running which wireshark or wireshark --version
+
+`which wireshark`
+
+`wireshark --version`
+
+![Nfs WireShark](./images/nfs-wiresh-output.PNG)
+
+![Webserver WireShark](./images/webserv1-wiresh-output.PNG)
+
+![Webserver WireShark](./images/webserv2-wiresh-output.PNG)
+
+![Webserver WireShark](./images/webserv1-wiresh-output.PNG)
+
+![load WireShark](./images/load-wiresh-output.PNG)
 
