@@ -42,5 +42,5 @@
       state: touch
   
   - name: set timezone
-      timezone:
-       name: EST/Ohio
+    timezone:
+      name: EST/Ohio
