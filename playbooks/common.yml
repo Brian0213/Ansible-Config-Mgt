@@ -42,4 +42,4 @@
 
     - name: set timezone
       timezone:
-        name: EST/Ohio
+        name: Americas/Ohio
