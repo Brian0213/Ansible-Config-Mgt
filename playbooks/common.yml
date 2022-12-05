@@ -42,4 +42,4 @@
 
     - name: set timezone
       timezone:
-        name: Americas/Ohio
+        name: Africa/Lagos
