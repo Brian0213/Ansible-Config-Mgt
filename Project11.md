@@ -1,5 +1,9 @@
 # Documentation for Project 11: ANSIBLE – AUTOMATE PROJECT 7 TO 10
 
+- Install and configure Ansible client to act as a Jump Server/Bastion Host
+
+- Create a simple Ansible playbook to automate servers configuration
+
 ## Preparing prerequisites
 
 - Update Name tag on your Jenkins EC2 Instance to Jenkins-Ansible
@@ -200,7 +204,7 @@ Run some shell script
 
 `cat dev.yml`
 
-![Line 189 - 197 Output](./images/server-archive-info.PNG)
+![Line 197 - 205 Output](./images/server-archive-info.PNG)
 
 ###### RUN FIRST ANSIBLE TEST
 
@@ -224,7 +228,7 @@ Run some shell script
 
 ![Nfs WireShark](./images/nfs-wiresh-output.PNG)
 
-![Webserver WireShark](./images/webserv1-wiresh-output.PNG)
+![Database WireShark](./images/db-wiresh-output.PNG)
 
 ![Webserver WireShark](./images/webserv2-wiresh-output.PNG)
 
@@ -232,3 +236,11 @@ Run some shell script
 
 ![load WireShark](./images/load-wiresh-output.PNG)
 
+- Optional step – Repeat once again
+Update your ansible playbook with some new Ansible tasks and go through the full checkout -> change codes -> commit -> PR -> merge -> build -> ansible-playbook cycle again to see how easily you can manage a servers fleet of any size with just one command!
+
+`ansible-playbook -i /var/lib/jenkins/jobs/ansible/builds/21/archive/inventory/dev.yml /var/lib/jenkins/jobs/ansible/builds/21/archive/playbooks/common.yml`
+
+![Optional Output](./images/addition-task-output.PNG)
+
+![load WireShark](./images/optional-step.PNG)
