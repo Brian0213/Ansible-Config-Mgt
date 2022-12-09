@@ -63,3 +63,22 @@ Now your Jenkins pipeline is more neat and clean.
 - update site.yml with - import_playbook: ../static-assignments/common-del.yml instead of common.yml and run it against dev servers:
 
 ![Update Site.yml File](./images/update-site-yml.PNG)
+
+![Inventory Path](./images/inventory-path.PNG)
+
+- Add the inventory path to the inventory in the ansible configuration and uncomment ansible:
+
+`sudo vi /etc/ansible/ansible.cfg`
+
+![Ansible Inventory Path](./images/ansible-inventory-path.PNG)
+
+- Run the command below to check the status of the servers:
+
+`ansible all -m ping`
+
+![Ansible Ping other Servers](./images/ansible-ping-servers.PNG)
+
+- Change back the folder:
+
+![Change Directory Back](./images/cd-dire.PNG)
+
