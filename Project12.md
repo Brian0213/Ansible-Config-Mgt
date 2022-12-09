@@ -81,4 +81,3 @@ Now your Jenkins pipeline is more neat and clean.
 - Change back the folder:
 
 ![Change Directory Back](./images/cd-dire.PNG)
-
