@@ -35,3 +35,31 @@ The main idea of save_artifacts project is to save artifacts into /home/ubuntu/a
 - If both Jenkins jobs have completed one after another – you shall see your files inside /home/ubuntu/ansible-config-artifact directory and it will be updated with every commit to your master branch.
 
 Now your Jenkins pipeline is more neat and clean.
+
+![Ansible Save Artifcat](./images/ansible-save-artifact.PNG)
+
+### REFACTOR ANSIBLE CODE BY IMPORTING OTHER PLAYBOOKS INTO SITE.YML
+
+- Step 2 – Refactor Ansible code by importing other playbooks into site.yml
+
+- Within playbooks folder, create a new file and name it site.yml – This file will now be considered as an entry point into the entire infrastructure configuration. Other playbooks will be included here as a reference. In other words, site.yml will become a parent to all other playbooks that will be developed. Including common.yml that you created previously. Dont worry, you will understand more what this means shortly.
+
+- Create a new folder in root of the repository and name it static-assignments. The static-assignments folder is where all other children playbooks will be stored. This is merely for easy organization of your work. It is not an Ansible specific concept, therefore you can choose how you want to organize your work. You will see why the folder name has a prefix of static very soon. For now, just follow along.
+
+- Move common.yml file into the newly created static-assignments folder.
+
+- Inside site.yml file, import common.yml playbook.
+
+- The code above uses built in import_playbook Ansible module.
+
+- Your folder structure should look like this;
+
+![Folder Structure](./images/folder-structure.PNG)
+
+- Run ansible-playbook command against the dev environment:
+
+- Since you need to apply some tasks to your dev servers and wireshark is already installed – you can go ahead and create another playbook under static-assignments and name it common-del.yml. In this playbook, configure deletion of wireshark utility.
+
+- update site.yml with - import_playbook: ../static-assignments/common-del.yml instead of common.yml and run it against dev servers:
+
+![Update Site.yml File](./images/update-site-yml.PNG)
