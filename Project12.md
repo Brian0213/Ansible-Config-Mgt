@@ -102,3 +102,54 @@ Step 3 – Configure UAT Webservers with a role ‘Webserver’
 - Launch 2 fresh EC2 instances using RHEL 8 image, we will use them as our uat servers, so give them names accordingly – Web1-UAT and Web2-UAT.
 
 - Tip: Do not forget to stop EC2 instances that you are not using at the moment to avoid paying extra. For now, you only need 2 new RHEL 8 servers as Web Servers and 1 existing Jenkins-Ansible server up and running.
+
+- To create a role, you must create a directory called roles/, relative to the playbook file or in /etc/ansible/ directory.
+
+- Create the directory/files structure manually
+Note: You can choose either way, but since you store all your codes in GitHub, it is recommended to create folders and files there rather than locally on Jenkins-Ansible server.
+
+The entire folder structure should look like below, but if you create it manually – you can skip creating tests, files, and vars or remove them if you used ansible-galaxy
+
+- After removing unnecessary directories and files, the roles structure should look like this:
+
+![Folder Output](./images/folder-struct.PNG)
+
+- Update your inventory ansible-config-mgt/inventory/uat.yml file with IP addresses of your 2 UAT Web servers
+NOTE: Ensure you are using ssh-agent to ssh into the Jenkins-Ansible instance just as you have done in project 11:
+
+![Uat Yml Output](./images/uat-yml.PNG)
+
+4.In /etc/ansible/ansible.cfg file uncomment roles_path string and provide a full path to your roles directory roles_path    = /home/ubuntu/ansible-config-mgt/roles, so Ansible could know where to find configured roles:
+
+`sudo vi /etc/ansible/ansible.cfg`
+
+![Ansible Config RolePath](./images/ansible-config-rolepath.PNG)
+
+5.It is time to start adding some logic to the webserver role. Go into tasks directory, and within the main.yml file, start writing configuration tasks to do the following:
+
+- Install and configure Apache (httpd service)
+- Clone Tooling website from GitHub https://github.com/<your-name>/tooling.git.
+-Ensure the tooling website code is deployed to /var/www/html on each of 2 UAT Web servers.
+- Make sure httpd service is started:
+Your main.yml may consist of following tasks:
+
+![Task Main Yml](./images/task-main-yml.PNG)
+
+#### REFERENCE WEBSERVER ROLE
+
+Step 4 – Reference ‘Webserver’ role
+
+- Within the static-assignments folder, create a new assignment for uat-webservers uat-webservers.yml. This is where you will reference the role:
+
+![Static Assignment New File](./images/static-webs.PNG)
+
+- Remember that the entry point to our ansible configuration is the site.yml file. Therefore, you need to refer your uat-webservers.yml role inside site.yml.
+
+- So, we should have this in site.yml:
+
+![Site Yml Update](./images/siteyml-update.PNG)
+
+Step 5 – Commit & Test
+
+- Commit your changes, create a Pull Request and merge them to master branch, make sure webhook triggered two consequent Jenkins jobs, they ran successfully and copied all the files to your Jenkins-Ansible server into /home/ubuntu/ansible-config-mgt/ directory.
+
