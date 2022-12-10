@@ -19,7 +19,7 @@
   - name: delete wireshark
     apt:
       name: wireshark-qt
-      state: present
+      state: removed
       autoremove: yes
       purge: yes
       autoclean: yes
