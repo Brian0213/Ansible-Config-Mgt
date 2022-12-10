@@ -33,7 +33,7 @@
   - name: delete wireshark
     apt:
       name: wireshark-qt
-      state: build-dep
+      state: fixed
       autoremove: yes
       purge: yes
       autoclean: yes
