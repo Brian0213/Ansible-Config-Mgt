@@ -86,7 +86,7 @@ Now your Jenkins pipeline is more neat and clean.
 
 `ansible-playbook -i inventory/dev.yml playbooks/site.yml`
 
-![](./images/cd-dir.PNG)
+![Dev Site Yml Output](./images/dev-site-yml-success.PNG)
 
 - Make sure that wireshark is deleted on all the servers by running wireshark --version
 

@@ -2,13 +2,13 @@
 - name: install apache
   become: true
   ansible.builtin.yum:
-    name: "httpd"
+    name: httpd
     state: present
 
 - name: install git
   become: true
   ansible.builtin.yum:
-    name: "git"
+    name: git
     state: present
 
 - name: clone a repo
