@@ -22,7 +22,7 @@
 
 - Create a new Freestyle project (you have done it in Project 9) and name it save_artifacts:
 
-![Project Save Artifcat](./images/save-artifact.PNG)
+![Project Save Artifcat](./images/save-artifacts.PNG)
 
 - This project will be triggered by completion of your existing ansible project. Configure it accordingly:
 
@@ -36,7 +36,7 @@ The main idea of save_artifacts project is to save artifacts into /home/ubuntu/a
 
 Now your Jenkins pipeline is more neat and clean.
 
-![Ansible Save Artifcat](./images/ansible-save-artifact.PNG)
+![Ansible Save Artifcat](./images/ansible-save-artifacts.PNG)
 
 ### REFACTOR ANSIBLE CODE BY IMPORTING OTHER PLAYBOOKS INTO SITE.YML
 
@@ -92,6 +92,15 @@ Now your Jenkins pipeline is more neat and clean.
 
 `wireshark --version`
 
+![Nfs Wireshark Removal](./images/nfs-wiresh-remove.PNG)
+
+![Web1 Wireshark Removal](./images/web1-wiresh-remove.PNG)
+
+![Web2 Wireshark Removal](./images/web2-wiresh-remove.PNG)
+
+![Database Wireshark Removal](./images/db-wiresh-remove.PNG)
+
+![LoadBal Wireshark Removal](./images/lb-wiresh-remove.PNG)
 
 ### CONFIGURE UAT WEBSERVERS WITH A ROLE ‘WEBSERVER’
 
@@ -155,4 +164,16 @@ Step 5 – Commit & Test
 
 - Now run the playbook against your uat inventory and see what happens:
 
-`sudo ansible-playbook -i /home/ubuntu/ansible-config-artifact/inventory/uat.yml /home/ubuntu/ansible-config-artifact/playbooks/site.yml`
+`ansible-playbook -i /home/ubuntu/ansible-config-artifact/inventory/uat.yml /home/ubuntu/ansible-config-artifact/playbooks/site.yml`
+
+![Site Yml Update](./images/siteyml-update.PNG)
+
+You should be able to see both of your UAT Web servers configured and you can try to reach them from your browser:
+
+ [Web 1 UAT Url](http://3.19.14.208/index.php)
+
+ [Web 2 UAT Url](http://18.118.103.219/index.php)
+
+![Web 1 Url](./images/web1-output.PNG)
+
+![Web 2 Url](./images/web2-output.PNG)

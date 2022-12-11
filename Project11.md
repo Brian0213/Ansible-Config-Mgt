@@ -140,7 +140,7 @@ Now, ssh into your Jenkins-Ansible server using ssh-agent:
 
 ![Inventory Devyml](./images/inventory-devyml-update.PNG)
 
-- To ssh into another server from the Jenkins-Asnible server:
+- To ssh into another server from the Jenkins-Ansible server:
 
 `ssh ec2-user@private-ip`
 
