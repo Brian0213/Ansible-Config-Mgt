@@ -42,3 +42,11 @@ include_vars
 - Update site.yml file to make use of the dynamic assignment. (At this point, we cannot test it yet. We are just setting the stage for what is yet to come. So hang on to your hats)
 
 - site.yml should now look like this.
+
+- Community Roles
+Now it is time to create a role for MySQL database – it should install the MySQL package, create a database and configure users. But why should we re-invent the wheel? There are tons of roles that have already been developed by other open source engineers out there. These roles are actually production ready, and dynamic to accomodate most of Linux flavours. With Ansible Galaxy again, we can simply download a ready to use ansible role, and keep going.
+
+- Download Mysql Ansible Role
+You can browse available community roles here
+
+We will be using a MySQL role developed by geerlingguy.
