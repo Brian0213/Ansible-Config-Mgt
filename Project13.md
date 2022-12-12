@@ -59,5 +59,16 @@ We will be using a MySQL role developed by geerlingguy.
 
 `mv geerlingguy.mysql/ mysql`
 
+![Mysql folder Name](./images/change-to-mysql.PNG)
+
+#### LOAD BALANCER ROLES
+
+- Load Balancer roles
+We want to be able to choose which Load Balancer to use, Nginx or Apache, so we need to have two roles respectively:
+
+Nginx
+Apache
+With your experience on Ansible so far you can:
+
 
 
