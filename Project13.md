@@ -22,7 +22,7 @@ Your layout should now look like this.
 
 - Now paste the instruction below into the env-vars.yml file.
 
-- ![Env Vars Yml File Update](./images/env-varsyml.PNG)
+![Env Vars Yml File Update](./images/env-varsyml.PNG)
 
 - Notice 3 things to notice here:
 
@@ -50,3 +50,14 @@ Now it is time to create a role for MySQL database – it should install the MyS
 You can browse available community roles here
 
 We will be using a MySQL role developed by geerlingguy.
+
+- Inside roles directory create your new MySQL role with ansible-galaxy install geerlingguy.mysql and rename the folder to mysql
+
+`ansible-galaxy install geerlingguy.mysql`
+
+![Ansible Mysql Download](./images/ansible-mysql.PNG)
+
+`mv geerlingguy.mysql/ mysql`
+
+
+
