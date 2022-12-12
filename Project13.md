@@ -118,3 +118,39 @@ In the apache defaults main.yml file, add the uat web servers
 
 ![Apache LoadBalancer Update](./images/apache-vhosts-loadbal.PNG)
 
+- Update the Nginx task main.yml with the webserver /etc/hosts info:
+
+![Nginx EtcHosts Update](./images/nginx-etc-hosts.PNG)
+
+- Important Hints:
+
+Since you cannot use both Nginx and Apache load balancer, you need to add a condition to enable either one – this is where you can make use of variables.
+
+Declare a variable in defaults/main.yml file inside the Nginx and Apache roles. Name each variables enable_nginx_lb and enable_apache_lb respectively.
+
+Set both values to false like this enable_nginx_lb: false and enable_apache_lb: false.
+
+Declare another variable in both roles load_balancer_is_required and set its value to false as well
+
+![Apacge Enable](./images/apache-enable-load-bal.PNG)
+
+![Nginx Enable](./images/nginx-enable-load-bal.PNG)
+
+Update both assignment and site.yml files respectively:
+
+Create a loadbalancers.yml file in the static-assignments folder:
+
+![Loadbalancer file](./images/lb-file.PNG)
+
+Create a db.yml file in the static-assignments folder:
+
+![Database file](./images/db-file.PNG)
+
+![Site file](./images/site-yml-.PNG)
+
+
+- Now you can make use of env-vars\uat.yml file to define which loadbalancer to use in UAT environment by setting respective environmental variable to true.
+
+You will activate load balancer, and enable nginx by setting these in the respective environment’s env-vars file:
+
+![Env Uat file](./images/update-envs-uat.PNG)
