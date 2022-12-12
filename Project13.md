@@ -59,7 +59,7 @@ We will be using a MySQL role developed by geerlingguy.
 
 `mv geerlingguy.mysql/ mysql`
 
-![Mysql folder Name](./images/change-to-mysql.PNG)
+![Mysql folder Name Change](./images/change-to-mysql.PNG)
 
 #### LOAD BALANCER ROLES
 
@@ -70,5 +70,34 @@ Nginx
 Apache
 With your experience on Ansible so far you can:
 
+Download Nginx:
 
+`ansible-galaxy install geerlingguy.nginx`
 
+![Nginx Download](./images/nginx-dwnld.PNG)
+
+Download Apache:
+
+`ansible-galaxy install geerlingguy.apache`
+
+![Apache Download](./images/apache-dwnld.PNG)
+
+Change the names of the downloaded apache and nginx folder:
+
+`mv geerlingguy.nginx/ nginx`
+
+`mv geerlingguy.apache/ apache`
+
+![Apache Nginx Folder Name Change](./images/apache-nginx-foldername-change.PNG)
+
+- Go to the main.yml file inside the Nginx folder and copy the uat-webserver ip address inside the inventory to it.
+
+![Copy Inventory/Uat to Nginx/Defaults/Main](./images/cp-inven-uat-nginx-defaults-main.PNG)
+
+- In the Nginx Defaults Main.yml file, uncomment nginx_extra_http_options:
+
+![Task above ](./images/nginx-http-uncomment.PNG)
+
+![Task Main 1](./images/task-main-1.PNG)
+
+![Task Main 2](./images/task-main-2.PNG)
