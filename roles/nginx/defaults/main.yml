@@ -82,11 +82,11 @@ nginx_upstreams:
 - name: myapp1
   strategy: "ip_hash" # "least_conn", etc.
   keepalive: 16 # optional
-  servers:{
-     "web1 weight=3",
-     "web2 weight=3",
+  servers: {
+     "Web1-UAT weight=3",
+     "Web2-UAT weight=3",
      "proxy_pass http://myapp1"
-   };
+   }
     
 nginx_log_format: |-
   '$remote_addr - $remote_user [$time_local] "$request" '
