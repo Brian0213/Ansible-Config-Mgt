@@ -101,3 +101,20 @@ Change the names of the downloaded apache and nginx folder:
 ![Task Main 1](./images/task-main-1.PNG)
 
 ![Task Main 2](./images/task-main-2.PNG)
+
+- Make changes to the setup-RedHat.yml file in nginx/tasks:
+
+![Set Redhat Changes](./images/nginx-redhat-fileupdate.PNG)
+
+In the apache defaults main.yml file, add the uat web servers
+
+![Adding Webservers to main file](./images/uat-webservers.PNG)
+
+- Make changes to the setup-RedHat.yml file in apache/tasks
+
+![Set Redhat Changes](./images/apache-task-set-redhat.PNG)
+
+- In apache defaults main.yml add the load balancer name under apache_vhosts:
+
+![Apache LoadBalancer Update](./images/apache-vhosts-loadbal.PNG)
+
