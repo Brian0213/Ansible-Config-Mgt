@@ -36,6 +36,7 @@
     path: /etc/hosts
     block: |
       {{ item.ip }} {{ item.name }}
+    marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item.name }}"
   loop:
     - { name: web1, ip: 172.31.42.82 }
     - { name: web2, ip: 172.31.43.211}

@@ -154,3 +154,9 @@ Create a db.yml file in the static-assignments folder:
 You will activate load balancer, and enable nginx by setting these in the respective environment’s env-vars file:
 
 ![Env Uat file](./images/update-envs-uat.PNG)
+
+- Run the playbook command:
+
+`ansible-playbook -i inventory/uat.yml playbooks/site.yml`
+
+![Playbook Run](./images/ansible-inventory-uat-siteyml.PNG)
