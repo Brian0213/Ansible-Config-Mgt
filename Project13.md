@@ -160,3 +160,4 @@ You will activate load balancer, and enable nginx by setting these in the respec
 `ansible-playbook -i inventory/uat.yml playbooks/site.yml`
 
 ![Playbook Run](./images/ansible-inventory-uat-siteyml.PNG)
+
