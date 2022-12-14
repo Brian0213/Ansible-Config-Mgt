@@ -1,0 +1,5 @@
+---
+- hosts: uat_webservers
+  roles:
+     - webserver
+  become: true

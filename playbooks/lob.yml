@@ -1,0 +1,4 @@
+---
+- name: Bring host back to play after failure
+  become: true
+  ansible.builtin.meta: clear_host_errors
