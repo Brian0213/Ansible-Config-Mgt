@@ -7,5 +7,6 @@
   changed_when: false
 
 - name: reload nginx
+  become: true
   service: name=nginx state=reloaded
   when: nginx_service_state == "started"

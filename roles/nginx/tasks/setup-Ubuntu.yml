@@ -1,5 +1,6 @@
 ---
 - name: Ensure dirmngr is installed (gnupg dependency).
+  become: true
   apt:
     name: dirmngr
     state: present
@@ -13,6 +14,7 @@
   when: nginx_ppa_use | bool
 
 - name: Ensure nginx will reinstall if the PPA was just added.
+  become: true
   apt:
     name: "{{ nginx_package_name }}"
     state: absent

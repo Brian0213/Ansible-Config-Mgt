@@ -1,4 +1,4 @@
-user  nginx_user;
+user  {{ nginx_user }};
 
 error_log  {{ nginx_error_log }};
 pid        {{ nginx_pidfile }};
@@ -68,6 +68,15 @@ http {
 {% endif %}
     }
 {% endfor %}
+{% endblock %}
+
+{% block server %}
+    server {
+        listen 8080;
+        location / {
+            proxy_pass http://myapp1;
+        }
+    }
 {% endblock %}
 
 {% block http_includes %}
