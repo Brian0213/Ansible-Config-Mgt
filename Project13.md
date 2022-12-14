@@ -161,3 +161,48 @@ You will activate load balancer, and enable nginx by setting these in the respec
 
 ![Playbook Run](./images/ansible-inventory-uat-siteyml.PNG)
 
+- Apache Playbook run output:
+
+![Apache Output](./images/ansible-inventory-uat-siteyml.PNG)
+
+![Apache Output](./images/apache-output-2.PNG)
+
+![Apache Output](./images/apache-output-3.PNG)
+
+![Apache Output](./images/apache-output-4.PNG)
+
+![Apache Output](./images/apache-output-5.PNG)
+
+- Loadbalancer Playbook run output:
+
+![LoadBalancer Output](./images/lb-output-1.PNG)
+
+![LoadBalancer Output](./images/lb-output-2.PNG)
+
+![LoadBalancer Output](./images/lb-output-3.PNG)
+
+![LoadBalancer Output](./images/lb-output-4.PNG)
+
+![LoadBalancer Output](./images/lb-output-5.PNG)
+
+![LoadBalancer Output](./images/lb-output-5.PNG)
+
+![LoadBalancer Success Output](./images/lb-success-output.PNG)
+
+- Folder and Files configuration:
+
+![Apache Enable](./images/apache-enable-load-bal.PNG)
+
+![Apache Task Folder](./images/apache-task-set-redhat.PNG)
+
+![Apache vhosts](./images/apache-vhosts-loadbal.PNG)
+
+![Nginx Folder](./images/nginx-dwnld.PNG)
+
+![Nginx Enable](./images/nginx-enable-load-bal.PNG)
+
+![Nginx Etc Hosts](./images/nginx-etc-hosts.PNG)
+
+![Nginx Http](./images/nginx-http-uncomment.PNG)
+
+![Nginx Redhat](./images/nginx-redhat-fileupdate.PNG)
