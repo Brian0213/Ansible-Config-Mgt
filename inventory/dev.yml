@@ -1,4 +1,4 @@
-[nfs]
+[nginx]
 172.31.44.17 ansible_ssh_user='ec2-user'
 
 [webservers]
