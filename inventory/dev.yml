@@ -1,5 +1,5 @@
-# [nginx]
-# 172.31.47.231 ansible_ssh_user='ec2-user'
+[nginx]
+172.31.47.231 ansible_ssh_user='ec2-user'
 
 # [webservers]
 # 172.31.46.254 ansible_ssh_user='ec2-user'
