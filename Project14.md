@@ -218,3 +218,4 @@ Jenkins needs to export the ANSIBLE_CONFIG environment variable. You can put the
 
 ![Ansible Cfg file](./images/prepare-ansible-execution.PNG)
 
+![Parameters Jenkins Field Implementation](./images/build-parameters-jenkins .PNG)
