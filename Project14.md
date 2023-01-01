@@ -208,7 +208,7 @@ Jenkins needs to export the ANSIBLE_CONFIG environment variable. You can put the
 
 ![Jenkins Build Documentation](https://wiki.jenkins.io/display/JENKINS/Building+a+software+project)
 
-- Create anisble.cfg file insode the deploy folder
+- Create anisble.cfg file inside the deploy folder
 
 ![Ansible Cfg file](./images/ansible-cfg-1.PNG)
 
@@ -233,3 +233,67 @@ Jenkins needs to export the ANSIBLE_CONFIG environment variable. You can put the
 ![Jenkins Playbook Success](./images/jenkins-success6.PNG)
 
 ![Jenkins Playbook Success](./images/jenkins-success7.PNG)
+
+#### CI/CD PIPELINE FOR TODO APPLICATION
+
+- We already have tooling website as a part of deployment through Ansible. Here we will introduce another PHP application to add to the list of software products we are managing in our infrastructure. The good thing with this particular application is that it has unit tests, and it is an ideal application to show an end-to-end CI/CD pipeline for a particular application.
+
+Our goal here is to deploy the application onto servers directly from Artifactory rather than from git. If you have not updated Ansible with an Artifactory role, simply use this guide to create an Ansible role for Artifactory (ignore the Nginx part). Configure Artifactory on Ubuntu 20.04:
+
+- Phase 1 – Prepare Jenkins
+Fork the repository below into your GitHub account:
+
+`https://github.com/darey-devops/php-todo.git`
+
+-Clone the todo repo into the instance server:
+
+- Cd out of the Ansible Config Mgt:
+
+![Change into the Instance](./images/cd-out-ansible-config.PNG)
+
+`git clone https://github.com/Brian0213/php-todo.git`
+
+![Clone Success](./images/clone-success.PNG)
+
+- Add php-todo folder to the Workspace
+
+- On you Jenkins server, install PHP, its dependencies and Composer tool (Feel free to do this manually at first, then update your Ansible accordingly later):
+
+`sudo apt install -y zip libapache2-mod-php phploc php-{xml,bcmath,bz2,intl,gd,mbstring,mysql,zip}`
+
+![Php Install Output](./images/php-install-output.PNG)
+
+- Install composer:
+
+`curl -sS https://getcomposer.org/installer | php`
+
+![Composer Install](./images/composer-success.PNG)
+
+- Move the composer into its bin
+
+`sudo mv composer.phar /usr/bin/composer`
+
+`composer --version`
+
+![Composer Install](./images/composer-move-version.PNG)
+
+- Install Jenkins plugins
+  1. Plot plugin
+  2.Artifactory plugin
+ - We will use plot plugin to display tests reports, and code coverage information.
+ - The Artifactory plugin will be used to easily upload code artifacts into an Artifactory server.
+
+ ![Plot Install](./images/jenkins-plot-install.PNG)
+
+ ![Artifactory Install](./images/artifactory-install.PNG)
+
+ - In Jenkins UI configure Artifactory:
+
+ - Launch the Artifactory Ubuntu 20.O instance
+
+ - Add the Instance Ip to the ci file inside the inventory folder:
+
+ ![Artifactory Ip](./images/artifactoryip-in-ci.PNG)
+
+- Ensure the artifactory.yml file is created in the static-assignments folder:
+
