@@ -1,0 +1,66 @@
+---
+# tasks file for test_artif
+- name: Run apt update before installing prerequisites
+  become: true
+  yum:
+    update_cache: yes
+
+- name: add the repository key to repos list
+  ansible.builtin.get_url:
+    url: "https://releases.jfrog.io/artifactory/artifactory-pro-rpms/jfrog-artifactory-pro/jfrog-artifactory-pro-[RELEASE].rpm"
+    dest: /home/ec2-user/jfrog-artifactory-pro-rpms.repo
+    remote_src: yes
+    follow: yes
+    mode: '0755'
+
+# - name: Copy the downloaded file to the etc repo
+#   ansible.builtin.copy:
+#     src: /home/ubuntu/jfrog-artifactory-rpms.repo
+#     dest: /etc/package.repos.d/jfrog-artifactory-rpms.repo
+#     remote_src: yes
+#     follow: yes
+
+- name: update cache
+  ansible.builtin.package:
+    update_cache: yes
+
+# - name: install artifactory
+#   ansible.builtin.package:
+#     name: jfrog-artifactory-oss
+#     state: present
+
+- name: install artifactory
+  become: yes
+  ansible.builtin.yum:
+    name: artifactory-pro.rpm
+    state: present
+  # command: yum install ./artifactory-pro.rpm -y
+
+- name: start and enable artifactory
+  become: true
+  service: name=artifactory.service state=started enabled=yes
+
+# - name: install gnupg2
+#   become: true
+#   ansible.builtin.package: 
+#     name: gnupg2
+#     state: present
+
+# - name: add the repository key to repos list
+#   ansible.builtin.get_url:
+#     url:  https://releases.jfrog.io/artifactory/artifactory-rpms/artifactory-rpms.repo 
+#     dest: /home/ubuntu/jfrog-artifactory-rpms.repo
+#     mode: '0755'
+
+
+# - name: install artifactory
+#   ansible.builtin.apt:
+#     name: jfrog-artifactory-oss
+#     state: present
+
+# wget -O artifactory-pro.rpm "https://releases.jfrog.io/artifactory/artifactory-pro-rpms/jfrog-artifactory-pro/jfrog-artifactory-pro-[RELEASE].rpm"
+
+
+# - name: add jfrog artifactory repository
+#   become: true
+#   command: echo "deb https://jfrog.bintray.com/artifactory-debs bionic main" | tee /etc/apt/sources.list.d/jfrog.list
