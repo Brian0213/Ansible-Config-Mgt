@@ -2,12 +2,12 @@
 # tasks file for artifactory
 
 - name: install java 11
-  ansible.builtin.package:
+  ansible.builtin.apt:
     name: java-11-openjdk-devel
     state: present
 
 - name: install java 11
-  ansible.builtin.package:
+  ansible.builtin.apt:
     name: 
       - wget
       - unzip
