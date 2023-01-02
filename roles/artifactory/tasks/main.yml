@@ -7,7 +7,7 @@
     state: present
 
 - name: install java 11
-  ansible.builtin.pacakage:
+  ansible.builtin.package:
     name: 
       - wget
       - unzip
