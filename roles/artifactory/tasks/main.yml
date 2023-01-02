@@ -9,7 +9,7 @@
 - name: install java 11
   ansible.builtin.yum:
     name: 
-      - wget
+      - apt
       - unzip
     state: present
 
