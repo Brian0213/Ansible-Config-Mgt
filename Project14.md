@@ -340,3 +340,15 @@ Phase 2 – Integrate Artifactory repository with Jenkins
 - Using Blue Ocean, create a multibranch Jenkins pipeline
 
 - On the database server, create database and user
+
+- To check if the database was created:
+
+- ssh into the database instance:
+
+![Jenkins Artifactory UI](./images/db-mysql-success1.PNG)
+
+![Jenkins Artifactory UI](./images/db-mysql-success2.PNG)
+
+Create a new job in Blueocean:
+
+
