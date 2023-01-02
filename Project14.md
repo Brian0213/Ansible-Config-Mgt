@@ -289,11 +289,54 @@ Fork the repository below into your GitHub account:
 
  - In Jenkins UI configure Artifactory:
 
- - Launch the Artifactory Ubuntu 20.O instance
+ - Launch the Artifactory Red Hat instance
 
  - Add the Instance Ip to the ci file inside the inventory folder:
 
  ![Artifactory Ip](./images/artifactoryip-in-ci.PNG)
 
-- Ensure the artifactory.yml file is created in the static-assignments folder:
+- Ensure the artifactory.yml file is created in the static-assignments folder.
 
+- Ensure artifactory folder is in the roles folder:
+
+- Run artifcatory ansible playbook:
+
+- In the Jesnkins UI, navigate to the project branch and change the build parameters to ci (where the artifactory server is store)
+
+![Build Parameter](./images/build-params.PNG)
+
+- Click the Build button:
+
+- You should get the screenshots below:
+
+![Jenkins Artifactory](./images/jenkins-art-success.PNG)
+
+![Jenkins Artifactory](./images/jenkins-art-lst.PNG)
+
+![Jenkins Artifactory](./images/jenkins-art-last.PNG)
+
+Copy the Artifactory public ip and launch on a browser using port 8081:
+
+[Arifactory Url](http://3.144.121.186:8082/ui/login/)
+
+![Artifactory Url Output](./images/artif-url-output.PNG)
+
+- Onboard in the jfrog website:
+
+![Jfrog Onboarding](./images/jfrog-onboard.PNG)
+
+- Create a repo:
+
+![Jfrog Repo Creation](./images/repo-success.PNG)
+
+- In Jenkins UI configure Artifactory:
+
+![Jenkins Artifactory UI](./images/jenkins-artif-setup.PNG)
+
+Phase 2 – Integrate Artifactory repository with Jenkins
+
+- Create a dummy Jenkinsfile in the repository
+
+- Using Blue Ocean, create a multibranch Jenkins pipeline
+
+- On the database server, create database and user
