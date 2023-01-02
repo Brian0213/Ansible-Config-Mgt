@@ -2,14 +2,14 @@
 # tasks file for artifactory
 
 - name: install java 11
-  ansible.builtin.yum:
+  ansible.builtin.package:
     name: java-11-openjdk-devel
     state: present
 
 - name: install java 11
-  ansible.builtin.yum:
+  ansible.builtin.package:
     name: 
-      - apt
+      - wget
       - unzip
     state: present
 
@@ -37,11 +37,11 @@
     follow: yes
 
 - name: update cache
-  ansible.builtin.yum:
+  ansible.builtin.package:
     update_cache: yes
 
 - name: install artifactory
-  ansible.builtin.yum:
+  ansible.builtin.package:
     name: jfrog-artifactory-oss
     state: present
 
