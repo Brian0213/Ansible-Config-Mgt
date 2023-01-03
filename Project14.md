@@ -435,3 +435,9 @@ SonarQube is a tool that can be used to create quality gates for software projec
 
 Despite that DevOps CI/CD pipeline helps with fast software delivery, it is of the same importance to ensure the quality of such delivery. Hence, we will need SonarQube to set up Quality gates. In this project we will use predefined Quality Gates (also known as The Sonar Way). Software testers and developers would normally work with project leads and architects to create custom quality gates.
 
+- Install the postgresql:
+
+`sudo ansible-galaxy collection install community.postgresql`
+
+![Ansible Todo Instance](./images/postgres-install .PNG)
+
