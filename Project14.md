@@ -416,7 +416,22 @@ This plugin provides generic plotting (or graphing) capabilities in Jenkins. It 
 
 - Log into the artifactory/jfrog server to confirm deployment of php-todo
 
- ![Artifact to Artifactory](./images/artifactory-deploy-success .PNG)
+![Artifact to Artifactory](./images/artifactory-deploy-success.PNG)
 
 - Deploy the application to the dev environment by launching Ansible pipeline:
+
+Run ansible against todo instance
+
+![Ansible Todo Instance](./images/ansible-todo-success1.PNG)
+
+![Ansible Todo Instance](./images/ansible-todo-success2.PNG)
+
+#### SONARQUBE INSTALLATION
+Before we start getting hands on with SonarQube configuration, it is incredibly important to understand a few concepts:
+
+Software Quality – The degree to which a software component, system or process meets specified requirements based on user needs and expectations.
+Software Quality Gates – Quality gates are basically acceptance criteria which are usually presented as a set of predefined quality criteria that a software development project must meet in order to proceed from one stage of its lifecycle to the next one.
+SonarQube is a tool that can be used to create quality gates for software projects, and the ultimate goal is to be able to ship only quality software code.
+
+Despite that DevOps CI/CD pipeline helps with fast software delivery, it is of the same importance to ensure the quality of such delivery. Hence, we will need SonarQube to set up Quality gates. In this project we will use predefined Quality Gates (also known as The Sonar Way). Software testers and developers would normally work with project leads and architects to create custom quality gates.
 
