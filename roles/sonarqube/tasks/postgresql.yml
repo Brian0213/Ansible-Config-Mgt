@@ -29,7 +29,7 @@
     group: postgres
     password: postgres
 
-- name: create a new database sonarqubedb
+- name: Create a new database sonarqubedb
   become_user: postgres
   community.postgresql.postgresql_db:
     name: sonarqube
