@@ -435,9 +435,72 @@ SonarQube is a tool that can be used to create quality gates for software projec
 
 Despite that DevOps CI/CD pipeline helps with fast software delivery, it is of the same importance to ensure the quality of such delivery. Hence, we will need SonarQube to set up Quality gates. In this project we will use predefined Quality Gates (also known as The Sonar Way). Software testers and developers would normally work with project leads and architects to create custom quality gates.
 
+- Tune Linux Kernel
+This can be achieved by making session changes which does not persist beyond the current session terminal.
+
+`sudo sysctl -w vm.max_map_count=262144`
+
+`sudo sysctl -w fs.file-max=65536`
+
+`ulimit -n 65536`
+
+`ulimit -u 4096`
+
+![Tunnel Linux Output](./images/tunnel-linux.PNG)
+
+- To make a permanent change, edit the file /etc/security/limits.conf and append the below:
+
+`ulimit -u 4096`
+
+![Tunnel Linux Output](./images/etc-secu-limits.PNG)
+
+- Before installing, let us update and upgrade system packages:
+
+`sudo apt-get update`
+
+![Apt Get Update](./images/apt-get-update.PNG)
+
+`sudo apt-get upgrade`
+
+![Apt Get Upgrade](./images/apt-get-upgrade.PNG)
+
+- Install wget and unzip packages
+
+`sudo apt-get install wget unzip -y`
+
+![Apt Get Wget](./images/apt-get-wget.PNG)
+
+- Install OpenJDK and Java Runtime Environment (JRE) 11
+
+`sudo apt-get install openjdk-11-jdk -y`
+
+![Openjdk 11](./images/openjdk-11.PNG)
+
+`sudo apt-get install openjdk-11-jre -y`
+
+![Openjdk 11](./images/openjdk-11-jre.PNG)
+
+- Set default JDK – To set default JDK or switch to OpenJDK enter below command:
+
+`sudo update-alternatives --config java`
+
+![Java Update](./images/java-update.PNG)
+
+`java -version`
+
+![Java Version](./images/java-vers-output.PNG)
+
+- Install and Setup PostgreSQL 10 Database for SonarQube
+
+The command below will add PostgreSQL repo to the repo list:
+
+`sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'`
+
+![Postsgre repo](./images/postgre-repo.PNG)
+
 - Install the postgresql:
 
 `sudo ansible-galaxy collection install community.postgresql`
 
-![Ansible Todo Instance](./images/postgres-install .PNG)
+![Ansible Todo Instance](./images/postgres-install.PNG)
 
