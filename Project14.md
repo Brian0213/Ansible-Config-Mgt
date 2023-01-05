@@ -683,7 +683,75 @@ Output:
 
 ![Sonar Sh Stop](./images/sonarsh-stop.PNG)
 
+- Change to root
 
+`sudo su`
+
+- Create a systemd service file for SonarQube to run as System Startup.
+
+`sudo nano /etc/systemd/system/sonar.service`
+
+- Add the configuration below for systemd to determine how to start, stop, check status, or restart the SonarQube service.
+
+![System Sonar output](./images/systemd-sonar-output.PNG)
+
+- Save the file and control the service with systemctl
+
+`sudo systemctl start sonar`
+
+`sudo systemctl enable sonar`
+
+`sudo systemctl status sonar`
+
+![Save System Status](./images/start-enable-status.PNG)
+
+#####  Access SonarQube
+
+- To access SonarQube using browser, type server’s IP address followed by port 9000:
+
+[Sonar Ip](http://3.17.166.34:9000/projects)
+
+![Sonar Url](./images/sonar-url-output.PNG)
+
+- Now, when SonarQube is up and running, it is time to setup our Quality gate in Jenkins.
+
+###### CONFIGURE SONARQUBE AND JENKINS FOR QUALITY GATE
+
+In Jenkins, install SonarScanner plugin:
+
+![Sonar Scanner](./images/sonar-scan-install.PNG)
+
+Navigate to configure system in Jenkins. Add SonarQube server as shown below:
+
+Manage Jenkins > Configure System
+
+![Sonar Jenkins Install](./images/sonar-jenkins-install.PNG)
+
+- Generate authentication token in SonarQube:
+
+![Sonar Token](./images/sonar-token.PNG)
+
+- Configure Quality Gate Jenkins Webhook in SonarQube – The URL should point to your Jenkins server:
+
+[Sonar Jenkins Hook Url](http://{JENKINS_HOST}/sonarqube-webhook/)
+
+![Sonar Jenkins Hook Output](./images/sonar-jenkins-hook.PNG)
+
+- Setup SonarQube scanner from Jenkins – Global Tool Configuration:
+
+![Sonar Scanner Config](./images/sonar-scanner.PNG)
+
+###### Update Jenkins Pipeline to include SonarQube scanning and Quality Gate
+
+- Below is the snippet for a Quality Gate stage in Jenkinsfile.
+
+![Sonar Scanner Config](./images/sonar-scanner.PNG)
+
+NOTE: The above step will fail because we have not updated `sonar-scanner.properties
+
+Configure sonar-scanner.properties – From the step above, Jenkins will install the scanner tool on the Linux server. You will need to go into the tools directory on the server to configure the properties file in which SonarQube will require to function during pipeline execution.
+
+`cd /var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarQubeScanner/conf/`
 
 
 
