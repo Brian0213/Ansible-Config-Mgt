@@ -763,7 +763,23 @@ Configure sonar-scanner.properties – From the step above, Jenkins will install
 
 ![Cd Tools](./images/update-conf.PNG)
 
+- End-to-End Pipeline Overview
 
+Indeed, this has been one of the longest projects from Project 1, and if everything has worked out for you so far, you should have a view like below:
+
+##### End-to-End Pipeline Overview
+
+Indeed, this has been one of the longest projects from Project 1, and if everything has worked out for you so far, you should have a view like below:
+
+![Sonar Success](./images/sonar-success1.PNG)
+
+![Sonar Success](./images/sonar-success2.PNG)
+
+But we are not completely done yet!
+
+The quality gate we just included has no effect. Why? Well, because if you go to the SonarQube UI, you will realise that we just pushed a poor-quality code onto the development environment.
+
+Navigate to php-todo project in SonarQube:
 
 
 
