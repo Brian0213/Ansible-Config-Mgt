@@ -753,7 +753,15 @@ Configure sonar-scanner.properties – From the step above, Jenkins will install
 
 `cd /var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarQubeScanner/conf/`
 
+![Cd Tools](./images/cd-to-tools.PNG)
 
+- Open sonar-scanner.properties file
+
+`sudo vi sonar-scanner.properties`
+
+- Add configuration related to php-todo project:
+
+![Cd Tools](./images/update-conf.PNG)
 
 
 
