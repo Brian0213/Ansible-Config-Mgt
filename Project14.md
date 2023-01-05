@@ -781,6 +781,15 @@ The quality gate we just included has no effect. Why? Well, because if you go to
 
 Navigate to php-todo project in SonarQube:
 
+![Sonar Phptodo](./images/sonar-phptodo.PNG)
+
+- There are bugs, and there is 0.0% code coverage. (code coverage is a percentage of unit tests added by developers to test functions and objects in the code)
+
+If you click on php-todo project for further analysis, you will see that there is 6 hours’ worth of technical debt, code smells and security issues in the code.
+
+Complete the following tasks to finish Project 14
+Introduce Jenkins agents/slaves – Add 2 more servers to be used as Jenkins slave. Configure Jenkins to run its pipeline jobs randomly on any available slave nodes.
+Configure webhook between Jenkins and GitHub to automatically run the pipeline when there is a code push.
 
 
 
